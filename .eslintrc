@@ -15,7 +15,10 @@
     "no-confusing-arrow": 0,
     "semi": [ 2, "never" ],
     "jsx-a11y/href-no-hash": 0,
-    "no-debugger": 0
+    "no-debugger": 0,
+    "react/jsx-filename-extension": 0,
+    "no-underscore-dangle": 0,
+    "global-require": 0
   },
   "globals": {
     "document": true,

@@ -1,30 +1,16 @@
-import path from 'path'
 import React from 'react'
-import ReactDOM from 'react-dom/server'
+import { renderToString, } from 'react-dom/server'
 import { flushModuleIds, } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
-import App from '../src/components/App.jsx'
+import App from '../src/components/App'
 
-export default ( { clientStats, outputPath, } ) => ( req, res, next ) => {
-  const app = ReactDOM.renderToString( <App /> )
+export default ( { clientStats, outputPath, } ) => ( req, res ) => {
+  const app = renderToString( <App /> )
   const moduleIds = flushModuleIds()
 
   const {
-    // react components:
-    Js,
-    Styles, // external stylesheets
-    Css, // raw css
-
-    // strings:
     js,
     styles, // external stylesheets
-    css, // raw css
-
-    // arrays of file names (not including publicPath):
-    scripts,
-    stylesheets,
-
-    publicPath,
   } = flushChunks( clientStats, {
     moduleIds,
     before: [ 'bootstrap', ],
@@ -34,10 +20,6 @@ export default ( { clientStats, outputPath, } ) => ( req, res, next ) => {
     // note: during development css still serves as a stylesheet
     outputPath,
   } )
-
-  console.log( 'PATH', req.path )
-  console.log( 'SERVED SCRIPTS', scripts )
-  console.log( 'SERVED STYLESHEETS', stylesheets )
 
   res.send( `<!doctype html>
       <html>
@@ -51,21 +33,4 @@ export default ( { clientStats, outputPath, } ) => ( req, res, next ) => {
           ${js}
         </body>
       </html>` )
-
-  // COMMENT the above `res.send` call
-  // and UNCOMMENT below to test rendering React components:
-
-  // const html = ReactDOM.renderToStaticMarkup(
-  //   <html>
-  //     <head>
-  //       <Styles />
-  //     </head>
-  //     <body>
-  //       <div id="root" dangerouslySetInnerHTML={{ __html: app }} />
-  //       <Js />
-  //     </body>
-  //   </html>
-  // )
-
-  // res.send(`<!DOCTYPE html>${html}`)
 }

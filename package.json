@@ -12,9 +12,14 @@
     "express": "^4.15.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-hot-loader": "^3.0.0-beta.6",
     "react-loadable": "^5.1.0",
     "react-universal-component": "^2.5.5",
     "webpack-flush-chunks": "^1.1.10",
+    "webpack": "^3.3.0",
+    "webpack-dev-middleware-multi-compiler": "^1.0.0",
+    "webpack-hot-middleware": "^2.18.2",
+    "webpack-hot-server-middleware": "^0.1.0",
     "write-file-webpack-plugin": "^4.1.0"
   },
   "devDependencies": {
@@ -33,11 +38,6 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "7.4.0",
     "extract-css-chunks-webpack-plugin": "^2.0.6",
-    "react-hot-loader": "^3.0.0-beta.6",
-    "rimraf": "^2.6.1",
-    "webpack": "^3.3.0",
-    "webpack-dev-middleware-multi-compiler": "^1.0.0",
-    "webpack-hot-middleware": "^2.18.2",
-    "webpack-hot-server-middleware": "^0.1.0"
+    "rimraf": "^2.6.1"
   }
 }
