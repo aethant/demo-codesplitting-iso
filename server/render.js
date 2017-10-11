@@ -39,8 +39,7 @@ export default ( { clientStats, outputPath, } ) => ( req, res, next ) => {
   console.log( 'SERVED SCRIPTS', scripts )
   console.log( 'SERVED STYLESHEETS', stylesheets )
 
-  res.send(
-    `<!doctype html>
+  res.send( `<!doctype html>
       <html>
         <head>
           <meta charset="utf-8">
@@ -51,8 +50,7 @@ export default ( { clientStats, outputPath, } ) => ( req, res, next ) => {
           <div id="root">${app}</div>
           ${js}
         </body>
-      </html>`
-  )
+      </html>` )
 
   // COMMENT the above `res.send` call
   // and UNCOMMENT below to test rendering React components:

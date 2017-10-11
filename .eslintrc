@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "plugins": [],
   "rules": {
+    "react/jsx-boolean-value": 0,
     "no-console": 1,
     "no-multi-str": 0,
     "space-in-parens": [2, "always"],
