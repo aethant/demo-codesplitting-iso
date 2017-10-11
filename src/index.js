@@ -1,21 +1,23 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render, hydrate } from 'react-dom'
 import AppContainer from 'react-hot-loader/lib/AppContainer'
-import App from './components/App.jsx'
+import App from './components/App'
 
-const render = App =>
-  ReactDOM.render(
+const renderApplication = ( Application ) => {
+  hydrate(
     <AppContainer>
-      <App />
+      <Application />
     </AppContainer>,
     document.getElementById( 'root' )
   )
+  return true
+}
 
 if ( process.env.NODE_ENV === 'development' ) {
   module.hot.accept( './components/App.jsx', () => {
-    const App = require( './components/App.jsx' ).default
-    render( App )
+    const AppDev = require( './components/App.jsx' ).default // eslint-disable-line global-require
+    renderApplication( AppDev )
   } )
 }
 
-render( App )
+renderApplication( App )

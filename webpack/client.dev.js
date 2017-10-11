@@ -52,7 +52,7 @@ module.exports = {
   },
   plugins: [
     new WriteFilePlugin(),
-    new ExtractCssChunks(),
+    new ExtractCssChunks({filename:'[chunk].css'}),
     new webpack.optimize.CommonsChunkPlugin( {
       names: [ 'bootstrap', ], // needed to put webpack bootstrap code before chunks
       filename: '[name].js',
