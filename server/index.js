@@ -23,8 +23,7 @@ if ( __DEBUG__ ) {
     // keeps serverRender updated with arg: { clientStats, outputPath }
     webpackHotServerMiddleware( multiCompiler, {
       serverRendererOptions: { outputPath, },
-    } )
-  )
+    } ) )
 } else {
   const clientStats = require( '../buildClient/stats.json' )
   const serverRender = require( '../buildServer/main.js' ).default
