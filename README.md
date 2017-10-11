@@ -1,0 +1,1 @@
+Very, _very_ basic demo of [universal-react-component](https://github.com/faceyspacey/react-universal-component). Not pretty, but it shows the principle behind it.
